@@ -223,7 +223,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4919729499839217901}
   - component: {fileID: 2605564814928202115}
-  - component: {fileID: 478293585535434602}
+  - component: {fileID: 7197323008984426545}
   m_Layer: 0
   m_Name: Shoot range++
   m_TagString: Untagged
@@ -291,7 +291,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.8, y: 3}
   m_EdgeRadius: 0
---- !u!114 &478293585535434602
+--- !u!114 &7197323008984426545
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -300,7 +300,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4418778814134623900}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 155f47cb3e0338345958a31e56a532e8, type: 3}
+  m_Script: {fileID: 11500000, guid: 4466951593f7cce498f4a27f8efd9751, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerTag: Player
@@ -314,7 +314,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2515131451302356147}
   - component: {fileID: 3377284545481656573}
-  - component: {fileID: 1798397257048252631}
+  - component: {fileID: 7079051663211372709}
   m_Layer: 0
   m_Name: Shoot range
   m_TagString: Untagged
@@ -382,7 +382,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.8, y: 1}
   m_EdgeRadius: 0
---- !u!114 &1798397257048252631
+--- !u!114 &7079051663211372709
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -391,7 +391,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5388939309292897444}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 155f47cb3e0338345958a31e56a532e8, type: 3}
+  m_Script: {fileID: 11500000, guid: 4466951593f7cce498f4a27f8efd9751, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerTag: Player
@@ -578,7 +578,7 @@ MonoBehaviour:
   shootingPoing: {fileID: 9003848698542385998}
   bullet: {fileID: 7626903953819419089, guid: a51a027d05d154144b5a5a36e8391894, type: 3}
   Firerate: 1.2
-  enemyInRangeChecker: {fileID: 1798397257048252631}
+  Range: {fileID: 7079051663211372709}
   animator: {fileID: 2798881903135289399}
 --- !u!114 &6728395139811722298
 MonoBehaviour:
@@ -596,10 +596,8 @@ MonoBehaviour:
   rigidbody: {fileID: 4194384740327160857}
   playerGraphics: {fileID: 1122813747515893933}
   enemySeenLeft: {fileID: 5489374113442757947}
-  visionLeft: {fileID: 7975584086274956883}
   enemySeenRight: {fileID: 9215645747703011812}
-  visionRight: {fileID: 8221308854665023519}
-  enemyInRangeChecker: {fileID: 478293585535434602}
+  Range: {fileID: 7197323008984426545}
 --- !u!114 &4405589454993450317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -614,9 +612,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 4194384740327160857}
   bulletTag: bullet
+  spikeTag: Spike
   maxHealth: 2
   throwPower: 80
-  healthBar: {fileID: 6810940606923079803}
+  healthBar: {fileID: 5992654255529867462}
   health2of3: {fileID: 21300000, guid: 5dc2bcbf0240f6d4a9eace63481a2693, type: 3}
   health1of3: {fileID: 21300000, guid: f2cfa8c713ecb9d4fbb315b2bd25431e, type: 3}
   health1of2: {fileID: 21300000, guid: d4bcebb27e143f641beb598386a3f37c, type: 3}

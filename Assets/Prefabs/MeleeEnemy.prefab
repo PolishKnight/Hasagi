@@ -192,7 +192,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2490232803326788749}
   - component: {fileID: 7300360626793291545}
-  - component: {fileID: 9095702647934151672}
+  - component: {fileID: 6603089666818357796}
   m_Layer: 0
   m_Name: Range++
   m_TagString: Untagged
@@ -260,7 +260,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6, y: 3}
   m_EdgeRadius: 0
---- !u!114 &9095702647934151672
+--- !u!114 &6603089666818357796
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -269,7 +269,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5118925381933962938}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 155f47cb3e0338345958a31e56a532e8, type: 3}
+  m_Script: {fileID: 11500000, guid: 4466951593f7cce498f4a27f8efd9751, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerTag: Player
@@ -367,7 +367,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4899247316713534220}
   - component: {fileID: 6380920042083015186}
-  - component: {fileID: 3399658307547591501}
+  - component: {fileID: 8653444526991242415}
   m_Layer: 0
   m_Name: Range
   m_TagString: Untagged
@@ -435,7 +435,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6, y: 1}
   m_EdgeRadius: 0
---- !u!114 &3399658307547591501
+--- !u!114 &8653444526991242415
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -444,7 +444,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7697542890296014828}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 155f47cb3e0338345958a31e56a532e8, type: 3}
+  m_Script: {fileID: 11500000, guid: 4466951593f7cce498f4a27f8efd9751, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerTag: Player
@@ -630,9 +630,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 6058052262203790259}
   bulletTag: bullet
+  spikeTag: Spike
   maxHealth: 3
   throwPower: 80
-  healthBar: {fileID: 7925027668308147586}
+  healthBar: {fileID: 7295390281073495719}
   health2of3: {fileID: 21300000, guid: 5dc2bcbf0240f6d4a9eace63481a2693, type: 3}
   health1of3: {fileID: 21300000, guid: f2cfa8c713ecb9d4fbb315b2bd25431e, type: 3}
   health1of2: {fileID: 21300000, guid: d4bcebb27e143f641beb598386a3f37c, type: 3}
@@ -652,10 +653,8 @@ MonoBehaviour:
   rigidbody: {fileID: 6058052262203790259}
   playerGraphics: {fileID: 39870731787554320}
   enemySeenLeft: {fileID: 3785500338247117430}
-  visionLeft: {fileID: 3121637374931264148}
   enemySeenRight: {fileID: 7913869518703148934}
-  visionRight: {fileID: 7933719843560023912}
-  enemyInRangeChecker: {fileID: 9095702647934151672}
+  Range: {fileID: 6603089666818357796}
 --- !u!114 &5489486941678237816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -668,7 +667,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bb3a68ebaf74da469e58d503d89cdcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyInRangeChecker: {fileID: 3399658307547591501}
+  Range: {fileID: 8653444526991242415}
   animator: {fileID: 148819451691283410}
 --- !u!95 &148819451691283410
 Animator:

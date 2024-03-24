@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 
 public class EnemyAtack: MonoBehaviour
 {
-    [SerializeField] private EnemyInRangeChecker enemyInRangeChecker;
+    [SerializeField] private EnemySeen Range;//tutaj przypisujemy Range
     [SerializeField] private Animator animator;
     string currentAnimation = "MeleeEnemyStanding";
     float animationTime = 1.4f / 1.5f;
@@ -23,19 +23,19 @@ public class EnemyAtack: MonoBehaviour
     }
     void Update()
     {
-        if (cooldown == 0 && enemyInRangeChecker.IsInRange() && !GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerDeath>().isPlayerDead())
+        if (cooldown == 0 && Range.IsSeen() && !GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerDeath>().isPlayerDead() && !gameObject.GetComponent<EnemyDearth>().isDead())//rozpoczêcie ataku jeœli gracz jest w zasiêgu
         {
             cooldown = animationTime;
             currentAnimation = "MeleeEnemyAtack";
             animator.Play(currentAnimation);
         }
-        else if (cooldown <= 0.8 / 1.5 && swordphase == 0)
+        else if (cooldown <= 0.8 / 1.5 && swordphase == 0)//zmiana pozycji colidera miecza w zalerznoœci od klatki animacji
         {
             swordColider.offset = new Vector2(0.17f, 0.02f);
             swordColider.size = new Vector2(0.075f, 0.5f);
             swordTransform.Rotate(new Vector3(0, 0, -10));
             swordphase = 1;
-            sword.StartAtack();
+            sword.StartAtack();//Od tego momentu jeœli gracz dotknie miecza otrzyma obra¿enia
         }
         else if (cooldown <= 0.75 / 1.5 && swordphase == 1)
         {
@@ -90,12 +90,12 @@ public class EnemyAtack: MonoBehaviour
             swordColider.offset = new Vector2(0.17f, 0.02f);
             swordTransform.Rotate(new Vector3(0, 0, 10));
             swordphase = 10;
-            sword.StopAtack();
+            sword.StopAtack();//od tego momentu jeœli gracz dotknie  miecza nie otrzyma obra¿eñ
         }
         if (cooldown > 0)
         {
             cooldown -= Time.deltaTime;
-            if (cooldown <= 0f)
+            if (cooldown <= 0f && !gameObject.GetComponent<EnemyDearth>().isDead())//powrót do stanu sprzed ataku
             {
                 cooldown = 0f;
                 currentAnimation = "MeleeEnemyStanding";

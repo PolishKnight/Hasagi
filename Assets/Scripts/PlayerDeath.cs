@@ -8,7 +8,7 @@ public class PlayerDeath : MonoBehaviour
 {
     [SerializeField] private string spikeTag = "Spike";
     [SerializeField] private int health = 6;
-    [SerializeField] private AudioMenager audioMenager;
+    [SerializeField] private Animator animator;
     [SerializeField] private Sprite health1of1;
     [SerializeField] private Sprite health5of6;
     [SerializeField] private Sprite health2of3;
@@ -18,6 +18,7 @@ public class PlayerDeath : MonoBehaviour
     [SerializeField] private Sprite health0of1;
     private bool death = false;
     private SpriteRenderer healthBar;
+    private AudioMenager audioMenager;
     public float time = 0;
     private void Awake()
     {
@@ -26,11 +27,12 @@ public class PlayerDeath : MonoBehaviour
     }
     public void damage(int amount)
     {
-        health -= amount;
-        if (health == 0)
+        health -= amount;//zmniejszenie siê hp
+        if (health <= 0 && !death)//odegranie animacji œmierci jeœli hp spadnie poni¿ej 1
         {
             healthBar.sprite = health0of1;
-            audioMenager.PlayerDearthSound();
+            audioMenager.PlayerDeathSound();
+            animator.Play("Player Dying");//Odegranie dzwiêku umierania
             death = true;
         }
         else if (health == 6)
@@ -65,7 +67,7 @@ public class PlayerDeath : MonoBehaviour
             time += Time.deltaTime;
             if (time >= 1)
             {
-                SceneManager.LoadScene("SampleScene");
+                SceneManager.LoadScene("SampleScene");//ponowne wczytanie sceny po sekundzie od œmierci
             }
         }
     }
@@ -73,14 +75,14 @@ public class PlayerDeath : MonoBehaviour
     {
         return death;
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)//œmieræ gracza po dotkniêciu kolców
     {
         if (collision.CompareTag(spikeTag))
         {
             health = 0;
             if (!death)
             {
-                audioMenager.PlayerDearthSound();
+                audioMenager.PlayerDeathSound();
             }
             death = true;
         }

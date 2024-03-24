@@ -23,29 +23,29 @@ public class Shoot : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKey(KeyCode.Q) && cooldown == 0)
+        if (Input.GetKey(KeyCode.Q) && cooldown == 0 && !GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerDeath>().isPlayerDead() && !audioMenager.IsTalking())//dodanie pocisku jeœli gracz nacisk q i cooldown jest równy 0
         {
             Instantiate(bullet, shootingPoing.position, transform.rotation);
             cooldown = Firerate;
             Qanimator.Play("LoadingQ");
         }
-        if (Input.GetKey(KeyCode.R) && tornadoCooldown == 0)
+        if (Input.GetKey(KeyCode.R) && tornadoCooldown == 0 && !GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerDeath>().isPlayerDead() && !audioMenager.IsTalking())//dodanie tornada jeœli gracz nacisk r i cooldown jest równy 0
         {
             Instantiate(tornado, shootingPoing.position, transform.rotation);
             tornadoCooldown = tornadoFirerate;
-            audioMenager.TornadoSound();
+            audioMenager.TornadoSound();//odegranie dŸwiêku tornada
             Ranimator.Play("LoadingR");
         }
         if (cooldown > 0) 
         {
-            cooldown -= Time.deltaTime;
+            cooldown -= Time.deltaTime;//zmniejszenie cooldownu strza³u jeœli jest wiêkszy od zera
             if (cooldown <= 0f)
             {
                 cooldown = 0f;
                 Qanimator.Play("Q");
             }
         }
-        if (tornadoCooldown > 0)
+        if (tornadoCooldown > 0)//zmniejszenie cooldownu tornada jeœli jest wiêkszy od zera
         {
             tornadoCooldown -= Time.deltaTime;
             if (tornadoCooldown <= 0f)
