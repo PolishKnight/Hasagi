@@ -35,13 +35,13 @@ public class Talking : MonoBehaviour
     private void Update()
     {
         timer += Time.deltaTime;
-        if(isInRangeOfTalking && timer >=0.05f && currentSprite < 14 && beforeDialog)
+        if(isInRangeOfTalking && timer >=0.05f && currentSprite < 14 && beforeDialog)//pojawianie siê chmurki jeœli gracz jest w zasiêgu
         {
             timer = 0;
             currentSprite++;
             spriteRenderer.sprite = sprites[currentSprite];
         }
-        else if (!isInRangeOfTalking && timer >= 0.05f && currentSprite > 0 || !beforeDialog && timer >= 0.05f && currentSprite > 0)
+        else if (!isInRangeOfTalking && timer >= 0.05f && currentSprite > 0 || !beforeDialog && timer >= 0.05f && currentSprite > 0)//chowanie siê chmurki jeœli gracz jest poza zasiêgiem lub zaczo³ dialog
         {
             timer = 0;
             currentSprite--;

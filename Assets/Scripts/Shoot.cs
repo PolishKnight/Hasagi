@@ -27,14 +27,14 @@ public class Shoot : MonoBehaviour
         {
             Instantiate(bullet, shootingPoing.position, transform.rotation);
             cooldown = Firerate;
-            Qanimator.Play("LoadingQ");
+            Qanimator.Play("LoadingQ");//odegranie animacji ³adowania strza³u 
         }
         if (Input.GetKey(KeyCode.R) && tornadoCooldown == 0 && !GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerDeath>().isPlayerDead() && !audioMenager.IsTalking())//dodanie tornada jeœli gracz nacisk r i cooldown jest równy 0
         {
             Instantiate(tornado, shootingPoing.position, transform.rotation);
             tornadoCooldown = tornadoFirerate;
             audioMenager.TornadoSound();//odegranie dŸwiêku tornada
-            Ranimator.Play("LoadingR");
+            Ranimator.Play("LoadingR");//odegranie animacji ³adowania tornada
         }
         if (cooldown > 0) 
         {
@@ -42,7 +42,7 @@ public class Shoot : MonoBehaviour
             if (cooldown <= 0f)
             {
                 cooldown = 0f;
-                Qanimator.Play("Q");
+                Qanimator.Play("Q");//odegranie animacji pokazuj¹cej ¿e strza³ jest gotowy
             }
         }
         if (tornadoCooldown > 0)//zmniejszenie cooldownu tornada jeœli jest wiêkszy od zera
@@ -51,7 +51,7 @@ public class Shoot : MonoBehaviour
             if (tornadoCooldown <= 0f)
             {
                 tornadoCooldown = 0f;
-                Ranimator.Play("R");
+                Ranimator.Play("R");//odegranie animacji pokazuj¹cej ¿e tornado jest gotowe 
             }
         }
     }

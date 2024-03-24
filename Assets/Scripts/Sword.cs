@@ -17,7 +17,7 @@ public class Sword : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag(playerTag) && atack == true && !gameObject.GetComponent<EnemyDearth>().isDead())//zadanie obra¿eñ jeœli gracz dotknie miecza i jeszcze ich nie otrzyma³
+        if (collision.CompareTag(playerTag) && atack == true && !transform.parent.gameObject.GetComponent<EnemyDearth>().isDead())//zadanie obra¿eñ jeœli gracz dotknie miecza i jeszcze ich nie otrzyma³
         {
             Killer.damage(3);
             atack = false;//zablokowanie opcji wielokrotnego otrzymania obra¿eñ przez gracza

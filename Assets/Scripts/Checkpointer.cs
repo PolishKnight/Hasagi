@@ -12,7 +12,7 @@ public class Checkpointer : MonoBehaviour
         if(instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(instance);
+            DontDestroyOnLoad(instance);//Zachowanie informacji z checkpointera po ponownym za³¹dowaniu sceny
         }
         else
         {

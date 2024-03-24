@@ -8,6 +8,6 @@ public class PlayerSpawn : MonoBehaviour
     void Start()
     {
         checkpointer = GameObject.FindGameObjectWithTag("Checkpointer").GetComponent<Checkpointer>();
-        transform.position = checkpointer.lastCheckpointPosition;
+        transform.position = checkpointer.lastCheckpointPosition;//ustawienie pozycji gracza na ostatni checkpoint
     }
 }
